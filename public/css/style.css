@@ -330,6 +330,7 @@ body {
     }
 }
 
+/* Responsivo */
 @media screen and (max-width: 900px) {
     #app {
         padding: 0 10px;
