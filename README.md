@@ -1,4 +1,4 @@
-# FlexBlog
+# Techno
 
 <br>
 
@@ -10,7 +10,7 @@
 
 ## :bookmark_tabs: Sobre
 
-Mini Projeto desenvolvido no curso CSS Flexbox
+Mini Projeto desenvolvido no curso Vue.js
 
 Intituição - Origamid
 
@@ -22,7 +22,8 @@ Professor - André Rafael
 
 - HTML5
 - CSS3
-- CSS Flexbox
+- JavaScript
+- Vue.js
 
 
 <br>
