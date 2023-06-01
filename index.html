@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Meta -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Techno | Aprendizado sobre Vue" />
         <meta property="og:description" content="Aprendizado sobre Vue.js, Instância, Data, Methods e Diretivas" />
-        <meta property="og:url" content="https://guilhermeassuncao.github.io/techno/" />
-        <meta name="image" property="og:image" content="https://guilhermeassuncao.github.io/techno/public/img/og-image.jpg" />
+        <meta property="og:url" content="https://techno.guilhermeassuncao.dev" />
+        <meta name="image" property="og:image" content="https://techno.guilhermeassuncao.dev/public/img/og-image.jpg" />
         <meta name="description" content="Aprendizado sobre Vue.js, Instância, Data, Methods e Diretivas" />
-        <!-- Fim Meta -->
 
-        <!-- Titulo -->
         <title>Techno | Aprendizado sobre Vue</title>
-        <!-- Fim Titulo -->
 
-        <!-- Fontes -->
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700" rel="stylesheet" />
-        <!-- Fim Fonte -->
 
-        <!-- CSS -->
         <link rel="stylesheet" href="./public/css/style.css" />
-        <!-- Fim CSS -->
 
-        <!-- Vue -->
         <script src="./public/js/vue.js"></script>
-        <!-- Fim Vue -->
     </head>
 
     <body>
-        <!-- APP -->
         <main id="app">
-            <!-- Header -->
             <header class="header">
                 <img class="header_logo" src="./public/img/techno.svg" alt="Techno" />
-                <div class="header_carrinho_menu"  @click="carrinhoAtivo = true">{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}</div>
+                <div class="header_carrinho_menu" @click="carrinhoAtivo = true">
+                    {{carrinhoTotal | numeroPreco}} | {{carrinho.length}}
+                </div>
             </header>
-            <!-- Fim Header -->
 
-            <!-- Produtos -->
             <section class="produtos">
-                <div v-for="itemProduto in produtos" :key="itemProduto.id" @click="abrirModal(itemProduto.id)" class="produto">
+                <div
+                    v-for="itemProduto in produtos"
+                    :key="itemProduto.id"
+                    @click="abrirModal(itemProduto.id)"
+                    class="produto"
+                >
                     <img :src="itemProduto.img" :alt="itemProduto.titulo" class="produto_img" />
                     <div class="produto_info">
                         <span class="produto_preco">{{itemProduto.preco | numeroPreco}}</span>
@@ -50,9 +43,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Fim Produtos -->
 
-            <!-- Modal -->
             <section class="modal" v-if="produto" @click="fecharModal">
                 <div class="modal_container">
                     <div class="modal_img">
@@ -63,7 +54,9 @@
                         <span class="modal_preco">{{produto.preco | numeroPreco}}</span>
                         <h2 class="modal_titulo">{{produto.nome}}</h2>
                         <p>{{produto.descricao}}</p>
-                        <button class="modal_btn" @click="adicionarCarrinho" v-if="produto.estoque > 0">Adicionar Item</button>
+                        <button class="modal_btn" @click="adicionarCarrinho" v-if="produto.estoque > 0">
+                            Adicionar Item
+                        </button>
                         <button class="modal_btn esgotado" disabled v-else>Produto Esgotado</button>
                     </div>
                     <div class="modal_avaliacoes">
@@ -75,10 +68,8 @@
                     </div>
                 </div>
             </section>
-            <!-- Fim Modal -->
 
-            <!-- Carrinho -->
-            <section class="carrinho_modal" :class="{ativo: carrinhoAtivo}" @click ="fecharCarrinho">
+            <section class="carrinho_modal" :class="{ativo: carrinhoAtivo}" @click="fecharCarrinho">
                 <div class="carrinho_container">
                     <button class="carrinho_fechar" @click="carrinhoAtivo = false">X</button>
                     <h2 class="carrinho_titulo">Carrinho</h2>
@@ -96,18 +87,12 @@
                     <p v-else>O carrinho está vazio</p>
                 </div>
             </section>
-            <!-- Fim Carrinho -->
 
-            <!-- Alert -->
             <div class="alerta" :class="{ativo: alertaAtivo}">
                 <p class="alerta_mensagem">{{alertaMensagem}}</p>
             </div>
-            <!-- Fim Alert -->
         </main>
-        <!-- Fim APP -->
 
-        <!-- Script -->
         <script src="./public/js/app.js"></script>
-        <!-- Fim Script -->
     </body>
 </html>
